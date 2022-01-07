@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+<!-- PC parts -->
+	<product code = "111-10">
+		<category>GPU</category>
+		<name>Radeon RX 550</name>
+		<description>Memory: 6gbs</description>
+		<quantity>42000</quantity>
+		<unit_price>69.99</unit_price>
+	</product>
+
+	<product code = "233-56">
+		<category>GPU</category>
+		<name>Nividea GEFORCE 3090</name>
+		<description>Memory: 16gbs</description>
+		<quantity>57000</quantity>
+		<unit_price>1500.00</unit_price>
+	</product>
+
+	<product code = "289-42">
+		<category>CPU</category>
+		<name>Intel core i7</name>
+		<description>Cores:12</description>
+		<quantity>27000</quantity>
+		<unit_price>39.99</unit_price>
+	</product>
+
+	<product code = "372-08">
+		<category>CPU</category>
+		<name>Intel core i9</name>
+		<description>Cores:16 </description>
+		<quantity>1000</quantity>
+		<unit_price>69.99</unit_price>
+	</product>
+
+	<!-- Monitors -->
+	<product code = "018-90">
+		<category>Monitors</category>
+		<name>Dell</name>
+		<description>60hz</description>
+		<quantity>540</quantity>
+		<unit_price>120.00</unit_price>
+	</product>
+
+	<product code = "019-42">
+		<category>Monitors</category>
+		<name>Lenovo</name>
+		<description>60hz</description>
+		<quantity>800</quantity>
+		<unit_price>200.00</unit_price>
+	</product>
+
+	<product code = "020-79">
+		<category>Monitors</category>
+		<name>Samsung</name>
+		<description>144hz</description>
+		<quantity>200</quantity>
+		<unit_price>169.99</unit_price>
+	</product>
+
+	<product code = "023-84">
+		<category>Monitors</category>
+		<name>LG</name>
+		<description>144hz</description>
+		<quantity>380</quantity>
+		<unit_price>300.00</unit_price>
+	</product>
+</products>

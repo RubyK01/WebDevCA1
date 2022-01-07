@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+	<title>Products</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="/images/icon_for_search_apps.png">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </head>
+	<body>
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Home</a>
+			</li>
+			 <li class="nav-item">
+				<input id="code" type="value" placeholder="000-00" onc aria-label="Search">
+			</li>
+			<li class="nav-item">
+				<button class="btn btn-outline-success" type="button" onclick="loadData('products.xml')">Search Id</button>
+			</li>
+		</ul>
+    <center>
+		<div class="jumbotron">
+			<h1 calss="display-4">Welcome!</h1>
+			<p class="lead">"Your one stop for all your needs"</p>
+		</div>
+    <div id="results">
+    </div>
+	</body>
+  <footer class="footer">
+    <div class="contact">
+      <p>Phone: -Insert Valid number here-</p>
+      <p>Email: example@gmail.com</p>
+    </div>
+  </footer>
+  </center>
+  <script>
+  // I got my solution by using the ajax xml example available on the moodle page
+  async function loadData() {
+    var found = false
+    var data = await fetch("products.xml")
+    var parsedData = await data.text()
+
+    var parser = new DOMParser();
+    var products_document = parser.parseFromString(parsedData,"text/xml");
+    var results = ""
+    var code_input = document.getElementById("code").value
+    var products = products_document.getElementsByTagName("product")
+    for(var i = 0; i < products.length; i++) {
+      var name = products[i].getElementsByTagName("name")[0].childNodes[0].nodeValue
+      var category= products[i].getElementsByTagName("category")[0].childNodes[0].nodeValue
+      var description = products[i].getElementsByTagName("description")[0].childNodes[0].nodeValue
+      var quantity = products[i].getElementsByTagName("quantity")[0].childNodes[0].nodeValue
+      var price = products[i].getElementsByTagName("unit_price")[0].childNodes[0].nodeValue
+      console.log("input: "+code_input)
+      var code = products[i].getAttribute('code')
+      if(code_input === code) {
+        found = true
+        results += "<div>"
+        + "Code: " + code +"<br/>"
+        + "Name: " + name +"<br/>"
+        + "Category: " + category +"<br/>"
+        + "Description: " +  description +"<br/>"
+        + "Stock: " +  quantity +"<br/>"
+        + "Price:  €" +  price +"<br/>"
+        + "</div> <br/>"
+        console.log(results + "working?")
+      }
+    }
+    document.getElementById("results").innerHTML = results
+    if(found === false){
+      results += "<div>" + "code not found" + "</div>"
+    }
+  }
+  //else{
+  //  results += "<div>" + "code not found" + "</div>"
+//}
+  </script>
+</html>

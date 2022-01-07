@@ -1,0 +1,21 @@
+body{
+	background-image: url("../images/background.jpg");
+	-moz-background-size: cover;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	min-height: 100%;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.jumbotron{
+  background-image: url("../images/background.jpg");
+  	-moz-background-size: cover;
+    background-size: 100%;
+  	background-repeat: no-repeat;
+}
